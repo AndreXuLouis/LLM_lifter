@@ -1,12 +1,20 @@
-# 测试
+# LLM_lifter - 大模型辅助的二进制提升器
 
-## 需要的组件
+## 架构图示意
+LLM_lifter主要由四个模块组成：反汇编模块，生成模块，验证模块，纠错模块
+<img width="897" height="562" alt="image" src="https://github.com/user-attachments/assets/3db85dd0-51ac-4bba-bb3a-b8b3b520ef3e" />
+
+## 测试
+
+### 需要的组件
 
 llvm-mctoll / llvm-lit / FileCheck: 照[此网址](https://github.com/microsoft/llvm-mctoll)步骤依次构建即可
 
-ida pro: 
+ida pro 9.0
 
-## 测试文件夹结构
+openai API访问权限
+
+### 测试文件夹结构
 
 主要文件夹含义如下：
 
@@ -24,7 +32,7 @@ ida pro:
 
 **iter_times/**：成功提升（指提升结果能够成功编译，但运行结果不一定正确）时的自修正迭代轮数。命名格式为`{binary}.iter`，表明成功提升\<binary\>时，自修正迭代的次数
 
-## 测试集说明
+### 测试集说明
 
 测试集来自于[llvm-mctoll](https://github.com/microsoft/llvm-mctoll)提升工具的测试集。该测试集利用[llvm-lit](https://llvm.org/docs/CommandGuide/lit.html)测试框架进行测试，testcases目录下每个.c文件中的RUN & CHECK命令即为llvm-lit框架的测试流程。
 
@@ -50,9 +58,9 @@ int main(int argc, char **argv) {
 
 以下测试流程参照llvm-lit测试框架的流程。
 
-## 测试流程
+### 测试流程
 
-### 简略测试流程1
+#### 简略测试流程1
 
 简略测试流程：直接运行scripts/run_test.sh脚本即可。
 ```shell
@@ -61,7 +69,7 @@ source scripts/set_api_key.sh
 source scripts/run_test.sh assert.c
 ```
 
-### 简略测试流程2
+#### 简略测试流程2
 
 使用llvm-lit工具测试，llvm-lit工具的共建参照[此网址](https://github.com/microsoft/llvm-mctoll).
 ```shell
@@ -73,7 +81,7 @@ python3 scripts/file_prep.py testcases/assert.c tmpfiles/assert.c
 llvm-lit -a tmpfiles/assert.c
 ```
 
-### 详细测试流程
+#### 详细测试流程
 
 1. 进入工作目录，初始化OPENAI_API_KEY
 ```shell
