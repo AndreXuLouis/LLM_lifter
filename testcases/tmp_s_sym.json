@@ -1,0 +1,42 @@
+{
+    "completed.7997": {
+        "type": "STT_OBJECT",
+        "address": 6295600,
+        "size": 1
+    },
+    "__libc_csu_fini": {
+        "type": "STT_FUNC",
+        "address": 4195856,
+        "size": 2
+    },
+    "_IO_stdin_used": {
+        "type": "STT_OBJECT",
+        "address": 4195872,
+        "size": 4
+    },
+    "__libc_csu_init": {
+        "type": "STT_FUNC",
+        "address": 4195744,
+        "size": 101
+    },
+    "foo": {
+        "type": "STT_FUNC",
+        "address": 4195536,
+        "size": 78
+    },
+    "_dl_relocate_static_pie": {
+        "type": "STT_FUNC",
+        "address": 4195344,
+        "size": 2
+    },
+    "_start": {
+        "type": "STT_FUNC",
+        "address": 4195296,
+        "size": 43
+    },
+    "main": {
+        "type": "STT_FUNC",
+        "address": 4195616,
+        "size": 116
+    }
+}
